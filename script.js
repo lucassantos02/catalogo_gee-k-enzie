@@ -42,54 +42,54 @@ let items = [
     },
 ];
 
-let listFigures = [];
-let listFrames = [];
+let framesList = [];
+let figuresList = [];
 
-function separateItens(lista) {
-  for (let i = 0; i < lista.length; i++) {
-    if (lista[i].type == "painting"){
-        listFrames.push(lista[i]);
+function separateItens(items) {
+  for (let i = 0; i < items.length; i++) {
+    if (items[i].type == "painting"){
+        framesList.push(items[i]);
     } else {
-      listFigures.push(lista[i]);
+      figuresList.push(items[i]);
     };
   };
 };
 separateItens(items);
-console.log(listFrames);
-console.log(listFigures);
+console.log(framesList);
+console.log(figuresList);
 
 let listPaintingSection = document.getElementsByClassName("paintingsSection")[0];
 let listFigureSection = document.getElementsByClassName("figuresSection")[0];
 let FigureUl = listFigureSection.getElementsByClassName("figureListUl")[0];
 let PaintingUl = listPaintingSection.getElementsByClassName("paintingListUl")[0];
 
-for (let i = 0; i < listFrames.length; i++) {
+for (let i = 0; i < framesList.length; i++) {
     let elementList = document.createElement("li");
-    let imgCard = document.createElement("img");
-    imgCard.src = listFrames[i].image;
-    imgCard.alt = listFrames[i].name;
-    imgCard.classList.add("imgCard");
+    let imagens = document.createElement("img");
+    imagens.src = framesList[i].image;
+    imagens.alt = framesList[i].name;
+    imagens.classList.add("imagenStyle");
     let name = document.createElement("span");
-    name.innerText = `${listFrames[i].name}`;
+    name.innerText = `${framesList[i].name}`;
     let p = document.createElement("p");
-    p.innerText = `${listFrames[i].price}`;
-    elementList.appendChild(imgCard);
+    p.innerText = `${framesList[i].price}`;
+    elementList.appendChild(imagens);
     elementList.appendChild(name);
     elementList.appendChild(p);
     PaintingUl.appendChild(elementList);
 };
 
-for (let i = 0; i < listFigures.length; i++) {
+for (let i = 0; i < figuresList.length; i++) {
     let elementList = document.createElement("li");
-    let imgCard = document.createElement("img");
-    imgCard.src = listFigures[i].image;
-    imgCard.alt = listFigures[i].name;
-    imgCard.classList.add("imgCard");
+    let imagens = document.createElement("img");
+    imagens.src = figuresList[i].image;
+    imagens.alt = figuresList[i].name;
+    imagens.classList.add("imagenStyle");
     let name = document.createElement("span");
-    name.innerText = `${listFigures[i].name}`;
+    name.innerText = `${figuresList[i].name}`;
     let p = document.createElement("p");
-    p.innerText = `${listFigures[i].price}`;
-    elementList.appendChild(imgCard);
+    p.innerText = `${figuresList[i].price}`;
+    elementList.appendChild(imagens);
     elementList.appendChild(name);
     elementList.appendChild(p);
     FigureUl.appendChild(elementList);
